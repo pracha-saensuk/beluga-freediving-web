@@ -3,11 +3,11 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Home',
+      text: 'หน้าหลัก',
       href: '/',
     },
     {
-      text: 'Pages',
+      text: 'คอร์สเรียนฟรีไดฟ์',
       links: [
         {
           text: 'Features (Anchor Link)',
@@ -40,7 +40,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Landing',
+      text: 'รู้จักครูผู้สอน',
       links: [
         {
           text: 'Lead Generation',
@@ -69,7 +69,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Blog',
+      text: 'รูปภาพ',
       links: [
         {
           text: 'Blog List',
@@ -94,7 +94,12 @@ export const headerData = {
       ],
     },
     {
-      text: 'Widgets',
+      text: 'สระที่ใช้สอน',
+      href: '#',
+    },
+
+    {
+      text: 'Blog',
       href: '#',
     },
   ],
