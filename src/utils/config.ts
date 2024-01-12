@@ -7,6 +7,7 @@ import type { MetaData } from '~/types';
 export interface SiteConfig {
   name: string;
   site?: string;
+  shortName?: string;
   base?: string;
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
@@ -83,6 +84,7 @@ const DEFAULT_SITE_NAME = 'Website';
 const getSite = () => {
   const _default = {
     name: DEFAULT_SITE_NAME,
+    shortName: '',
     site: undefined,
     base: '/',
     trailingSlash: false,
