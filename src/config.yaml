@@ -1,5 +1,6 @@
 site:
   name: 'Beluga Freediving'
+  shortName: 'Beluga'
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
