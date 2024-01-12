@@ -1,7 +1,23 @@
 ---
 import { SITE } from '~/utils/config';
+import { Icon } from 'astro-icon/components';
 ---
 
-<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 {SITE?.name}
+<span
+  class="logo-container self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+>
+  <Icon name="Beluga-logo" />{SITE?.name}
 </span>
+
+<style>
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-container svg {
+    width: 2em;
+    height: 2em;
+  }
+</style>
