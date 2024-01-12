@@ -39,6 +39,9 @@ export default defineConfig({
     icon({
       include: {
         tabler: ['*'],
+        'lets-icons':[
+          'phone-light'
+        ],
         'flat-color-icons': [
           'template',
           'gallery',
