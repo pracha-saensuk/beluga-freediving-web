@@ -1,5 +1,5 @@
 site:
-  name: AstroWind
+  name: 'Beluga Freediving'
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,26 +9,26 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร'
+    template: '%s — Beluga Freediving'
+  description: 'รับสอน Freedive(ฟรีไดฟ์) มี Course เรียน Freediving ในกทม และ ออนไลน์ สำหรับผู้เริ่มต้น และ ระดับ Advanced สอนโดยครูเจ้าของสถิติประเทศไทย ผู้มีสถิติ DYNB 200m และ DNF 125m'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: 'Beluga Freediving'
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
-  twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
-    cardType: summary_large_image
+  # twitter:
+  #   handle: '@onwidget'
+  #   site: '@onwidget'
+  #   cardType: summary_large_image
 
 i18n:
-  language: en
+  language: th
   textDirection: ltr
 
 apps:
