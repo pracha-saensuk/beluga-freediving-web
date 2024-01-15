@@ -2,9 +2,10 @@
 import { UI } from "~/utils/config";
 
 // TODO: This code is temporary
+console.log(UI.theme);
 ---
 
-<script is:inline define:vars={{ defaultTheme: UI.theme || "system" }}>
+<script is:inline define:vars={{ defaultTheme: UI.theme || "light" }}>
   function applyTheme(theme) {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
