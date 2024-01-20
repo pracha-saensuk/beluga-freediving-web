@@ -135,6 +135,7 @@ export interface Item {
   icon?: string;
   classes?: Record<string, string>;
   callToAction?: CallToAction;
+  callToAction2?: CallToAction;
   image?: Image;
 }
 
@@ -275,7 +276,9 @@ export interface Content extends Headline, Widget {
   content?: string;
   image?: string | unknown;
   items?: Array<Item>;
+  bottomItems?: Array<Item>;
   columns?: number;
+  bottomColumns?: number;
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;

@@ -46,6 +46,7 @@ const {
           description,
           icon,
           callToAction,
+          callToAction2,
           classes: itemClasses = {},
         }) => (
           <div
@@ -102,11 +103,16 @@ const {
                 set:html={description}
               />
             )}
-            {callToAction && (
-              <div class="mt-2">
-                <Button {...callToAction} />
-              </div>
+            {callToAction && (<div class="mt-2">
+              
+              {callToAction && (
+                <Button {...callToAction} variant="primary"/>
             )}
+            {callToAction2 && (
+                <Button {...callToAction2} class="ml-2" />
+            )}
+              </div>)}
+            
           </div>
         )
       )}
