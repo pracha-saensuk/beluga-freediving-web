@@ -1,309 +1,175 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import { SITE } from '~/utils/config';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+// import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
+// import Steps from '~/components/widgets/Steps.astro';
+// import Content from '~/components/widgets/Content.astro';
+import Profile from '~/components/widgets/Profile.astro'
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
+// import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 const metadata = {
   title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
   ignoreTitleTemplate: true,
 };
+const lineLink = SITE.contact.line;
+const telURI = SITE.contact.telURI;
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
   <Hero
+    
     actions={[
       {
         variant: 'primary',
         text: 'สอบถามทาง Line',
-        href: 'https://lin.ee/NQllfJ0',
+        href: lineLink,
         target: '_blank',
         icon: 'Line-logo',
       },
-      { text: 'โทรปรึกษาฟรี', variant:'secondary', href: '#features', icon:'lets-icons:phone-light' },
+      { text: 'โทรปรึกษาฟรี', variant:'secondary', href: telURI, icon:'lets-icons:phone-light' },
     ]}
-    image={{ src: '~/assets/images/hero.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero.png', alt: 'Image of a group of freediver!'}}
   >
-    <Fragment slot="title">
-      คอร์ส
-      <span class="text-primary dark:text-white highlight"> เรียนฟรีไดฟ์</span> กทม สอนโดยครูฟรีไดฟ์<span class="text-secondary dark:text-white highlight">สถิติประเทศไทย!</span>
-    </Fragment>
+  <Fragment slot="title">
+    <span>
+    คอร์ส
+    <span class="text-primary dark:text-white highlight"> เรียนฟรีไดฟ์</span> กทม สอนโดยครูฟรีไดฟ์<span class="text-secondary dark:text-white highlight"> สถิติประเทศไทย!</span></span>
+    
+  </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      
+      <span class="block mb-1 font-bold text-blue-600">กรุงเทพมหานคร และ เกาะเต่า</span>
+      ปรึกษาได้ฟรี!
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
+  <!-- <Note /> -->
 
   <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 4.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
+  image={{
+    src: '~/assets/images/pracha-podium-square.png',
+    alt: 'Colorful Image',
+  }}
+>
+<Fragment slot="content">
+<h2>STET!</h2>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+</Fragment>
+</Content>
+<WidgetWrapper
+  id='dynb-200m-youtube'
+  isDark={false}
+  containerClass={`max-w-7xl mx-auto`}
+>
 
-  <!-- Content Widget **************** -->
+<div class="mx-auto max-w-7xl p-4 md:px-8">
+  <div class={`md:gap-16`}>
+<YouTube class="rounded-2xl" id="bXSkIYmnOqY" />
 
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
+  </div></div></WidgetWrapper>
   <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
+    title="คอร์สเรียนฟรีไดฟ์"
+    subtitle="คอร์สเรียนกลุ่มเล็ก จัดที่กรุงเทพ, แสมสาร และ เกาะเต่า"
+    tagline="Freediving Course"
     items={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
+        title: 'ทดลองเรียนฟรีไดฟ์',
+        subtitle: `ราคา 2,500`,
         description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
+          "สำหรับผู้ที่อยากรู้ว่าตัวเองเหมาะกับ Freedive ไหม คอร์สให้ลองเรียน Freedive 3 ชั่วโมง เพื่อได้ลองดำ Freedive ได้ลองใช้อุปกรณ์",
+        icon: 'Try-Freedive',
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: lineLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_blank',
+          text: 'รายละเอียด',
+          href: lineLink,
+          icon: 'tabler:list-details',
+        }
       },
       {
-        title: 'Features',
+        title: 'Private Pool Training',
+        subtitle: 'ราคา 2,500 บาท',
         description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
+          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
+        icon: 'B3',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: lineLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_blank',
+          text: 'รายละเอียด',
+          href: lineLink,
+          icon: 'tabler:list-details',
+        }
       },
       {
-        title: 'Content',
+        title: `คอร์สผู้เริ่มต้น`,
+        subtitle: `Lap 1 - ราคา 5,900 บาท`,
+        subtitle2: `Wave 1 - ราคา 8,900 บาท`,
+        description: "คอร์สสำหรับผู้เริ่มต้น สำหรับคนที่ไม่เคยเรียน Freedive มาก่อน เรียนเพื่อที่จะสามารถดำน้ำได้ลึก 12-20 เมตร สามารถดำน้ำชมปะการัง และ ถ่ายรูปใต้น้ำได้",
+        icon: 'W1',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: lineLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_blank',
+          text: 'รายละเอียด',
+          href: lineLink,
+          icon: 'tabler:list-details',
+        }
+      },
+      {
+        title: 'Private Pool Training',
+        subtitle: 'Lap 2 - 9,800 บาท',
+        subtitle2: 'Wave 2 - 15,900 บาท',
         description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
+          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
+        icon: 'W2',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: lineLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_blank',
+          text: 'รายละเอียด',
+          href: lineLink,
+          icon: 'tabler:list-details',
+        }
       },
     ]}
   >
@@ -312,67 +178,188 @@ const metadata = {
     </Fragment>
   </Features2>
 
+  <!-- Features Widget *************** -->
+  <Features
+    id="why-beluga-freediving"
+    tagline="Why Beluga Freediving?"
+    title="ทำไมถึงต้องเรียน Freediving กับ Beluga?"
+    subtitle="ความแตกต่างของโรงเรียนเรา"
+    items={[
+      {
+        title: 'การสอนที่เข้มข้น',
+        description:
+          'จากประสบการณ์การดำน้ำและการสอนของทีมครูที่ทักษะฟรีไดฟ์ระดับ Top ของประเทศ พร้อมมาแชร์ประสบการณ์จริงให้กับนักเรียน',
+          icon: 'fa-solid:swimmer',
+      },
+      {
+        title: 'รูปถ่ายใต้น้ำ สวยๆ',
+        description:
+          'เรามีกล้องสำหรับถ่ายภาพใต้น้ำตอนเรียนและตอนไป Trip พร้อมมีทีมแต่งภาพให้ออกมาดูดีเหมาะสำหรับไปโพสลง Social',
+        icon: 'tabler:camera',
+      },
+      {
+        title: 'คำแนะนำและส่วนลดสำหรับซื้ออุปกรณ์',
+        description:
+          'fins รุ่นไหนดี Wetsuit เลือกยังไง? เรามีคำตอบให้ พร้อมส่วนลด brand ดังสูงสุด 15% เช่น Waterpro, Garmin, Molchanovs และ อื่นๆ',
+        icon: 'tabler:scuba-mask',
+      },
+      {
+        title: 'Community & Trips',
+        description:
+          'พบกับกลุ่มเพื่อนๆ ที่ชอบการดำน้ำแบบฟรีไดฟ์ ที่พร้อมจะเป็น Buddy ตอนซ้อมในสระ หรือ ในทะเล และ เป็นเพื่อนร่วม Trip',
+        icon: 'iconoir:community',
+      },
+    ]}
+  />
+
+  <Profile
+  id="meet-your-instructor"
+  title="ครูผู้สอน"
+  tagline="Meet Your Instructor"
+  subtitle="รู้จักครูผู้สอนของโรงเรียน Beluga Freediving"
+  items={[
+    {
+      title: 'DYNB National Record Holder',
+      description:'ผู้ถือสถิติประเทศไทยด้านการดำน้ำแบบใส่ฟิน',
+      icon: 'tabler:medal-2',
+    },
+    {
+      title: 'DYNB 200m',
+      description:'ดำน้ำแบบใส่ฟินระยะทาง 200m'
+    },
+    {
+      title: 'DNF 125m',
+      description:'ดำน้ำแบบไม่ใส่ฟินระยะทาง 125m'
+    },
+    {
+      title: 'STA 5:00 นาที',
+      description:'กลั้นหายใจ 5 นาที'
+    },
+  ]}
+  bottomColumns={3}
+  bottomItems={[
+    {
+      icon: 'tabler:brand-youtube',
+      callToAction: {
+        target: '_blank',
+        text: 'Youtube',
+        href: 'https://youtube.com/playlist?list=PLPIud62AFmgtksbhOPfE21SGDMOO2NDdF',
+      },
+    },
+    {
+      icon: 'tabler:brand-instagram',
+      callToAction: {
+        target: '_blank',
+        text: 'Instagram',
+        href: '#',
+      },
+    },
+    {
+      icon: 'tabler:brand-facebook',
+      callToAction: {
+        target: '_blank',
+        text: 'Facebook',
+        href: '#',
+      },
+    },
+  ]}
+  image={{
+    src: '~/assets/images/pracha-profile.webp',
+    alt: 'Pracha Saensuk profile',
+  }}
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">ครูตุน</h3>
+    <h4 class="text-primary text-xl">Molchanovs  Freediving Instructor</h4>
+    <p>
+      นักกีฬาฟรีไดฟ์ระดับประเทศ พร้อมประสบการ์สอน Freediver หลายๆคน และ Coach หลายๆคนให้ดำได้ 100m และ กลั้นหายใจมากกว่า 5 นาที
+    </p>
+    <h3 class="mt-2 mb-0 text-primary text-xl">สถิติ และ ประสบการณ์:</h3>
+  </Fragment>
+
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Profile>
+
+<Content
+    isReversed
+    tagline="Why choose Molchanovs?"
+    title="ทำไมต้องหลักสูตร Molchanovs?"
+    items={[
+      {
+          "title": "การออกแบบหลักสูตร",
+          "description": "โดยนักแข่ง Freedive ระดับโลก เช่น Alexey Molchanovs, Adam Stern, และ Florian Dagoury"
+      },
+      {
+          "title": "ประสบการณ์และวิจัย",
+          "description": "อิงจากประสบการณ์ของนัก Freedive ระดับโลกและงานวิจัยทางวิทยาศาสตร์การกีฬา"
+      },
+      {
+          "title": "การอัพเดทหลักสูตร",
+          "description": "อย่างต่อเนื่องด้วยสาระทันสมัยและค้นพบใหม่ๆ"
+      },
+      {
+          "title": "เนื้อหาหลักสูตร",
+          "description": "เหมาะสำหรับการดำน้ำ Freedive อย่างถูกต้องและปลอดภัย"
+      },
+      {
+          "title": "ระบบ Base Training",
+          "description": "หลังจากเรียนจบ มีตารางซ้อมเพิ่มความอึด, เทคนิคการ Freedive, และความยืดหยุ่นของร่างกาย"
+      }
+  ]
+  }
+    image={{
+      src: '~/assets/images/alexey-profile.webp',
+      alt: 'Colorful Image',
+    }}
+  />
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
+    title="พบกับบทความดีๆ เกี่ยวกับฟรีไดฟ์"
+    information={`รวบรวมบทความที่เป็นประโยชน์สำหรับนักฟรีไดฟ์`}
   />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    title="คำถามที่พบบ่อย"
+    subtitle="แหล่งรวบรวมคำถามที่พบบ่อย"
     tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+    classes={{ container: 'max-w-6xl bg-blue-50', }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'ว่ายน้ำไม่เป็นสามารถเรียนฟรีไดฟ์ได้ไหม?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          "ถึงว่ายน้ำไม่เป็นก็สามารถเรียนได้ฟรีไดฟ์ได้ เพราะเนื่องจากจะมีการสอนทักษะการตีฟินเพิ่มขึ้นมาให้อยู่แล้ว แต่บางหลักสูตรของเรา เช่นหลักสูต Molchanovs จำเป็นต้องว่ายน้ำได้ต่อเนื่องติดต่อกันได้ 200m ซึ่งทางครูเราสามารถสอนพื้นฐานการว่ายน้ำแบบง่ายๆได้ เพื่อให้ผ่านเกณฑ์ 200m",
       },
       {
-        title: 'What do I need to start?',
+        title: 'อายุเยอะสามารถเรียนฟรีไดฟ์ได้ไหม?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'สามารถเรียนได้ ถ้ามีสุขภาพแข็งแรงและ ไม่มีโรคประจำตัว ในกรณีที่มีโรคประจำตัวทางเราจะมีแบบสอบถามทางการแพทย์เพื่อให้แพทย์ได้ตรวจสุขภาพและประเมินว่าสามารถเรียนฟรีไดฟ์ได้หรืิไม่ ถ้าแพทย์อนุญาตการสามารถเรียนได้เลย',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'ต้องเรียนหลักสูตรไหน?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          "สำหรับผู้เริ่มต้นแนะนำให้เรียนหลักสูตร Lap1/Wave1 ก่อนซึ่ง 2 คอร์สนี้เป็นคอร์สปูพื้นฐานสำหรับผู้เริ่มต้น สำหรับผู้ที่เคยเรียนคอร์ส Lap1/Wave1 หรือ Level1 จากสถาบันอื่น สามารถมา upgrade เป็น Lap2/Wave2 ได้",
       },
       {
-        title: "What's something that you don't understand?",
+        title: "สถานที่เรียนที่ไหน?",
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          "สระที่ใช้เรียนจะเป็นสระในกทมซึ่งมีหลายสระเช่น สระมหิดลศาลายา, สระ Seascout เทอดไท 77, สระ Sivalai จรัญ 12 และ สระอื่น โปรดสอบถามแอดมินเพิ่มเติม",
       },
       {
-        title: 'What is something that you would like to try again?',
+        title: 'เปิดคอร์สเรียนวันไหนบ้าง?',
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          "โดยปกติคอร์สเรียนจะมีทุกเสาร์ อาทิตย์ แต่สามารถเรียนวันธรรมดาได้ โปรดสอบถามแอดมินเพิ่มเติม",
       },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
+      {title: 'อะไรคือข้อดีของการดำน้ำแบบฟนีไดฟ์',
+      description: 'Freedive มีความพิเศษตรงที่ว่าทุกครั้งที่มีการกลั้นหายและหน้าของเราโดนน้ำปฏิกิริยารีเฟล็กซ์ขณะดำน้ำของสัตว์เลี้ยงลูกด้วยนมจะทำงานทำให้หัวใจเต้นช้าลง และทำให้เรารู้สึกสงบมากขึ้นเวลาดำน้ำ และ ด้วยความที่ว่า Freedive ไม่มีถัง Oxygen ช่วยจึงเป็นเหมือนกีฬาที่ต้องมีการออกแรงตี fins เพื่อดำลงลึกและตีกลับขึ้น หลายๆคนใช้การฝึกในสระเป็นการออกกำลัง แทนการไปวิ่ง หรือ เข้า Fitness'
+      }
+      ]}
   />
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
 
   <!-- CallToAction Widget *********** -->
 
@@ -380,20 +367,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'ติดต่อทาง Line',
+        href: lineLink,
         target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:checklist',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      ปรึกษา และ<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">สมัครเรียน</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      ติดต่อสอบถามเพิ่มเติมได้ใน Line@ <br class="hidden md:inline" />ของ Beluga Freediving
     </Fragment>
   </CallToAction>
 </Layout>
