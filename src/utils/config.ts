@@ -9,6 +9,19 @@ export interface SiteConfig {
   site?: string;
   shortName?: string;
   base?: string;
+  price: {
+    lap1:number,
+    wave1:number;
+    lap2:number;
+    wave2:number;
+    tryFreedive:number;
+    privateTraining:number;
+  };
+  contact: {
+    line: string;
+    tel: string;
+    telURI: string;
+  };
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
 }
@@ -78,6 +91,9 @@ const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   ui?: unknown;
   analytics?: unknown;
 };
+if(!config || !config.site) throw 'Please set config file';
+config.site.contact.telURI = config?.site.contact.tel.replace(/^(0|\+66)(\d+)$/, 'tel:+66$2');
+
 
 const DEFAULT_SITE_NAME = 'Website';
 
@@ -88,10 +104,9 @@ const getSite = () => {
     site: undefined,
     base: '/',
     trailingSlash: false,
-
     googleSiteVerificationId: '',
   };
-
+  if(!config.site?.price) throw Error('no course price data!');
   return merge({}, _default, config?.site ?? {}) as SiteConfig;
 };
 

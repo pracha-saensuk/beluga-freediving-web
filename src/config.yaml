@@ -4,7 +4,16 @@ site:
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
-
+  price:
+    lap1: 6500
+    wave1: 8900
+    lap2: 9800
+    wave2: 15900
+    tryFreedive: 3000
+    privateTraining: 3000
+  contact:
+    line: 'https://lin.ee/NQllfJ0'
+    tel: '0620868996'  
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
 # Default SEO metadata
