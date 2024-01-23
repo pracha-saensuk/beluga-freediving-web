@@ -42,7 +42,7 @@ const metadata = merge(
 ) as MetaData;
 ---
 
-<Layout metadata={metadata}>
+<Layout  loadYoutubeScript={true} metadata={metadata}>
   <SinglePost post={{ ...post, image: image }} url={url} />
   <ToBlogLink />
 </Layout>

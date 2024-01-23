@@ -4,14 +4,16 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 
 import { headerData, footerData } from '~/navigation';
-
+import { YouTube } from '@astro-community/astro-embed-youtube';
 import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  loadYoutubeScript?: boolean;
 }
 
-const { metadata } = Astro.props;
+const { metadata,loadYoutubeScript } = Astro.props;
+loadYoutubeScript
 ---
 
 <Layout metadata={metadata}>
@@ -21,6 +23,7 @@ const { metadata } = Astro.props;
   <main>
     <slot />
   </main>
+  {false && <div><YouTube class="rounded-2xl" id="bXSkIYmnOqY" /></div>}
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
