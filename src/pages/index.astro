@@ -39,7 +39,7 @@ const telURI = SITE.contact.telURI;
       },
       { text: 'โทรปรึกษาฟรี', variant:'secondary', href: telURI, icon:'lets-icons:phone-light' },
     ]}
-    image={{ src: '~/assets/images/hero.png', alt: 'Image of a group of freediver!'}}
+    image={{ src: '~/assets/images/hero.png', alt: `A group of freediver gathered at a swimming pool, some sitting, others standing. The instructor in the foreground are giving a briefing or instruction, holding a clipboard. The attendees are dressed in casual and swimwear. The pool is Olympic-sized with clear blue water, and there's a diving platform in the background under a bright, sunny sky`}}
   >
   <Fragment slot="title">
     <span>
@@ -62,11 +62,19 @@ const telURI = SITE.contact.telURI;
   <Content
   image={{
     src: '~/assets/images/pracha-podium-square.png',
-    alt: 'Colorful Image',
+    alt: `A person stands on a podium at the AIDA Thailand Freediving Pool Championship 2023, smiling and holding a gold medal. They are wearing a light green t-shirt with event logos and text. The background is a crinkled banner with event details, including the date and location in Bangkok. The left side of the image is slightly obscured by another individual's arm, also holding a medal.`,
+    widths:[400, 768, 1024, 2040],
+    sizes: "(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px",
+    loading:"eager",
+    width: 1024,
+    height: 576
   }}
 >
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
 <Fragment slot="content">
-<h2>STET!</h2>
+<h2 class='text-4xl md:text-5xl'>สอนโดยเจ้าของ<span class="text-primary"> สถิติประเทศไทย DYNB 200m</span> และ ทีมที่มีประสบการณ์</h2>
 
 </Fragment>
 </Content>
@@ -311,7 +319,7 @@ const telURI = SITE.contact.telURI;
   }
     image={{
       src: '~/assets/images/alexey-profile.webp',
-      alt: 'Colorful Image',
+      alt: 'Alexey Molchanovs',
     }}
   />
   <!-- HighlightedPosts Widget ******* -->
@@ -319,7 +327,10 @@ const telURI = SITE.contact.telURI;
   <BlogLatestPosts
     title="พบกับบทความดีๆ เกี่ยวกับฟรีไดฟ์"
     information={`รวบรวมบทความที่เป็นประโยชน์สำหรับนักฟรีไดฟ์`}
-  />
+  ><Fragment slot="bg">
+
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment></BlogLatestPosts>
 
   <!-- FAQs Widget ******************* -->
 
