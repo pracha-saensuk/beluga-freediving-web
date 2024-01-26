@@ -1,11 +1,11 @@
 site:
   name: 'Beluga Freediving'
   shortName: 'Beluga'
-  site: 'https://astrowind.vercel.app'
+  site: 'https://belugafreediving.com'
   base: '/'
   trailingSlash: false
-  price:
-    lap1: 6500
+  priceNumber:
+    lap1: 5900
     wave1: 8900
     lap2: 9800
     wave2: 15900

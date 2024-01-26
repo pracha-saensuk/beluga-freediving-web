@@ -52,3 +52,11 @@ export const toUiAmount = (amount: number) => {
 
   return value;
 };
+
+export const convertPriceObjToString = (priceObj:{[key:string]:number})=>{
+  const price: Partial<{ key:string }> = {};
+    Object.keys(priceObj).map((key:string) => {
+      price[key] = priceObj[key].toLocaleString();
+  });
+  return price;
+}

@@ -3,6 +3,7 @@ import yaml from 'js-yaml';
 import merge from 'lodash.merge';
 
 import type { MetaData } from '~/types';
+import { convertPriceObjToString } from './utils';
 
 export interface SiteConfig {
   name: string;
@@ -10,13 +11,21 @@ export interface SiteConfig {
   shortName?: string;
   base?: string;
   price: {
+    lap1:string,
+    wave1:string;
+    lap2:string;
+    wave2:string;
+    tryFreedive:string;
+    privateTraining:string;
+  };
+  priceNumber: {
     lap1:number,
     wave1:number;
     lap2:number;
     wave2:number;
     tryFreedive:number;
     privateTraining:number;
-  };
+  }
   contact: {
     line: string;
     tel: string;
@@ -106,7 +115,8 @@ const getSite = () => {
     trailingSlash: false,
     googleSiteVerificationId: '',
   };
-  if(!config.site?.price) throw Error('no course price data!');
+  if(!config.site?.priceNumber) throw Error('no course price data!');
+  config.site.price = convertPriceObjToString(config.site.priceNumber) as SiteConfig['price'];
   return merge({}, _default, config?.site ?? {}) as SiteConfig;
 };
 

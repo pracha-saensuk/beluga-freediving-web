@@ -285,3 +285,6 @@ export interface Content extends Headline, Widget {
 }
 
 export interface Contact extends Headline, Form, Widget {}
+
+import { SiteConfig } from './utils/config';
+export type CoursePrice = {[key in keyof SiteConfig['price']]: string};
