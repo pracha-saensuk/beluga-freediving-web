@@ -1,0 +1,21 @@
+---
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+const metadata = {
+  title: 'Beluga Freediving - สระเรียนในกรุงเทพ',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Content
+    isReversed
+    tagline="Pool location"
+    title="สระที่ใช้เรียนใช้สอนใน กทม"
+  >
+    <Fragment slot="image">
+  <iframe src="https://www.google.com/maps/d/embed?mid=1aBj6HulK7OiYAYQrYlmHCf_xQlfXSgs&ehbc=2E312F" width="100%" height="480"></iframe>
+
+    </Fragment>
+</Content>
+</Layout>
