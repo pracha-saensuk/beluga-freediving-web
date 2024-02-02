@@ -1,10 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import { SITE } from '~/utils/config';
+import { SITE, } from '~/utils/config';
 import Hero from '~/components/widgets/Hero.astro';
 // import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 // import Steps from '~/components/widgets/Steps.astro';
 // import Content from '~/components/widgets/Content.astro';
 import Profile from '~/components/widgets/Profile.astro'
@@ -14,7 +13,8 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import { YouTube } from '@astro-community/astro-embed-youtube';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import CourseSection from '~/components/sections/CoursesSection.astro';
+
 
 const metadata = {
   title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
@@ -75,116 +75,24 @@ const telURI = SITE.contact.telURI;
 </Fragment>
 <Fragment slot="content">
 <h2 class='text-4xl md:text-5xl'>สอนโดยเจ้าของ<span class="text-primary"> สถิติประเทศไทย DYNB 200m</span> และ ทีมที่มีประสบการณ์</h2>
+</Fragment>
+</Content>
+
+<Content isReversed>
+<Fragment slot="image">
+  <YouTube class="rounded-2xl" id="bXSkIYmnOqY" />
+</Fragment>
+<Fragment slot="bg">
+  <div class="absolute inset-0 dark:bg-transparent"></div>
+</Fragment>
+<Fragment slot="content" >
+<h2 class='text-4xl md:text-5xl'>วีดิโอสถิติ<span class="text-primary"> Dynamic Bifin 200m </span>พร้อมการวิเคราะห์</h2>
 
 </Fragment>
 </Content>
-<WidgetWrapper
-  id='dynb-200m-youtube'
-  isDark={false}
-  containerClass={`max-w-7xl mx-auto`}
->
 
-<div class="mx-auto max-w-7xl p-4 md:px-8">
-  <div class={`md:gap-16`}>
-<YouTube class="rounded-2xl" id="bXSkIYmnOqY" />
-
-  </div></div></WidgetWrapper>
   <!-- Features2 Widget ************** -->
-  <Features2
-    title="คอร์สเรียนฟรีไดฟ์"
-    subtitle="คอร์สเรียนกลุ่มเล็ก จัดที่กรุงเทพ, แสมสาร และ เกาะเต่า"
-    tagline="Freediving Course"
-    items={[
-      {
-        title: 'ทดลองเรียนฟรีไดฟ์',
-        subtitle: `ราคา 2,500`,
-        description:
-          "สำหรับผู้ที่อยากรู้ว่าตัวเองเหมาะกับ Freedive ไหม คอร์สให้ลองเรียน Freedive 3 ชั่วโมง เพื่อได้ลองดำ Freedive ได้ลองใช้อุปกรณ์",
-        icon: 'Try-Freedive',
-        callToAction:{
-          target:'_blank',
-          text: 'ลงเรียน',
-          href: lineLink,
-          icon: 'tabler:checklist',
-          class:'btn-primary'
-        },
-        callToAction2:{
-          target:'_blank',
-          text: 'รายละเอียด',
-          href: lineLink,
-          icon: 'tabler:list-details',
-        }
-      },
-      {
-        title: 'Private Pool Training',
-        subtitle: 'ราคา 2,500 บาท',
-        description:
-          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
-        icon: 'B3',
-
-        callToAction:{
-          target:'_blank',
-          text: 'ลงเรียน',
-          href: lineLink,
-          icon: 'tabler:checklist',
-          class:'btn-primary'
-        },
-        callToAction2:{
-          target:'_blank',
-          text: 'รายละเอียด',
-          href: lineLink,
-          icon: 'tabler:list-details',
-        }
-      },
-      {
-        title: `คอร์สผู้เริ่มต้น`,
-        subtitle: `Lap 1 - ราคา 5,900 บาท`,
-        subtitle2: `Wave 1 - ราคา 8,900 บาท`,
-        description: "คอร์สสำหรับผู้เริ่มต้น สำหรับคนที่ไม่เคยเรียน Freedive มาก่อน เรียนเพื่อที่จะสามารถดำน้ำได้ลึก 12-20 เมตร สามารถดำน้ำชมปะการัง และ ถ่ายรูปใต้น้ำได้",
-        icon: 'W1',
-
-        callToAction:{
-          target:'_blank',
-          text: 'ลงเรียน',
-          href: lineLink,
-          icon: 'tabler:checklist',
-          class:'btn-primary'
-        },
-        callToAction2:{
-          target:'_blank',
-          text: 'รายละเอียด',
-          href: lineLink,
-          icon: 'tabler:list-details',
-        }
-      },
-      {
-        title: 'Private Pool Training',
-        subtitle: 'Lap 2 - 9,800 บาท',
-        subtitle2: 'Wave 2 - 15,900 บาท',
-        description:
-          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
-        icon: 'W2',
-
-        callToAction:{
-          target:'_blank',
-          text: 'ลงเรียน',
-          href: lineLink,
-          icon: 'tabler:checklist',
-          class:'btn-primary'
-        },
-        callToAction2:{
-          target:'_blank',
-          text: 'รายละเอียด',
-          href: lineLink,
-          icon: 'tabler:list-details',
-        }
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  <CourseSection />
 
   <!-- Features Widget *************** -->
   <Features
@@ -200,7 +108,7 @@ const telURI = SITE.contact.telURI;
           icon: 'fa-solid:swimmer',
       },
       {
-        title: 'รูปถ่ายใต้น้ำ สวยๆ',
+        title: 'รูปถ่ายใต้น้ำสวยๆ',
         description:
           'เรามีกล้องสำหรับถ่ายภาพใต้น้ำตอนเรียนและตอนไป Trip พร้อมมีทีมแต่งภาพให้ออกมาดูดีเหมาะสำหรับไปโพสลง Social',
         icon: 'tabler:camera',
@@ -338,7 +246,6 @@ const telURI = SITE.contact.telURI;
     title="คำถามที่พบบ่อย"
     subtitle="แหล่งรวบรวมคำถามที่พบบ่อย"
     tagline="FAQs"
-    classes={{ container: 'max-w-6xl bg-blue-50', }}
     items={[
       {
         title: 'ว่ายน้ำไม่เป็นสามารถเรียนฟรีไดฟ์ได้ไหม?',
@@ -365,7 +272,7 @@ const telURI = SITE.contact.telURI;
         description:
           "โดยปกติคอร์สเรียนจะมีทุกเสาร์ อาทิตย์ แต่สามารถเรียนวันธรรมดาได้ โปรดสอบถามแอดมินเพิ่มเติม",
       },
-      {title: 'อะไรคือข้อดีของการดำน้ำแบบฟนีไดฟ์',
+      {title: 'อะไรคือข้อดีของการดำน้ำแบบฟรีไดฟ์',
       description: 'Freedive มีความพิเศษตรงที่ว่าทุกครั้งที่มีการกลั้นหายและหน้าของเราโดนน้ำปฏิกิริยารีเฟล็กซ์ขณะดำน้ำของสัตว์เลี้ยงลูกด้วยนมจะทำงานทำให้หัวใจเต้นช้าลง และทำให้เรารู้สึกสงบมากขึ้นเวลาดำน้ำ และ ด้วยความที่ว่า Freedive ไม่มีถัง Oxygen ช่วยจึงเป็นเหมือนกีฬาที่ต้องมีการออกแรงตี fins เพื่อดำลงลึกและตีกลับขึ้น หลายๆคนใช้การฝึกในสระเป็นการออกกำลัง แทนการไปวิ่ง หรือ เข้า Fitness'
       }
       ]}
@@ -385,6 +292,10 @@ const telURI = SITE.contact.telURI;
       },
     ]}
   >
+  
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
     <Fragment slot="title">
       ปรึกษา และ<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">สมัครเรียน</span>
     </Fragment>
