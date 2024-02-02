@@ -1,5 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import cloudflare from '@astrojs/cloudflare';
 
 import { defineConfig, squooshImageService } from 'astro/config';
 
@@ -28,8 +29,9 @@ export default defineConfig({
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
-  output: 'static',
-
+  output: 'hybrid',
+  adapter: cloudflare(),
+  
   integrations: [
     tailwind({
       applyBaseStyles: false,
