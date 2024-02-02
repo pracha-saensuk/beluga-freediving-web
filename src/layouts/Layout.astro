@@ -16,6 +16,7 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 // import { ViewTransitions } from 'astro:transitions';
 
 import type { MetaData as MetaDataType } from '~/types';
+import TrackingScripts from '~/components/common/TrackingScripts.astro';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -44,7 +45,7 @@ const { language, textDirection } = I18N;
     <slot />
 
     <BasicScripts />
-
+    <TrackingScripts/>
     <style is:global>
       img {
         content-visibility: auto;
