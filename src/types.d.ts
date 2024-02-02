@@ -161,12 +161,21 @@ export interface Testimonial {
 
 export interface Input {
   type: HTMLInputTypeAttribute;
+  required: boolean;
   name: string;
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  options?: string[];
 }
-
+export interface Select {
+  type: 'select';
+  required: boolean;
+  name: string;
+  label?: string;
+  default?: string;
+  options: string[];
+}
 export interface Textarea {
   label?: string;
   placeholder?: string;
@@ -202,7 +211,7 @@ export interface Collapse {
 }
 
 export interface Form {
-  inputs?: Array<Input>;
+  inputs?: Array<Input|Select>;
   textarea?: Textarea;
   disclaimer?: Disclaimer;
   button?: string;
@@ -282,6 +291,20 @@ export interface Content extends Headline, Widget {
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;
+}
+
+export interface CourseDetail extends Headline, Widget {
+  id?:string;
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+  courseContentText?: string;
+  description: string;
+  detailList: {
+    sectionHeader?: string;
+    listItems?: string[];
+  }[];
+
 }
 
 export interface Contact extends Headline, Form, Widget {}
