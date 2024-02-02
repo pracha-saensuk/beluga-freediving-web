@@ -1,32 +1,67 @@
 ---
-import type { Form } from '~/types';
+import type { Form, Input, Select } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
 ---
 
-<form>
+<form id="registerForm">
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
-          name && (
+        (input) => { 
+            if (input.type === 'select'){
+              const {name, label, options} = input as Select;
+              return name && (
+                <div class="mb-4">
+                {label && (
+                <label for={name} class="block text-sm font-medium">
+                  {label} {input.required && (<span class="text-red-500">*</span>)}
+                </label>
+              )}
+            <div class="relative inline-block w-full">
+              
+              
+              <select
+              form="registerForm"
+                id={name}
+                name={name}
+                class="appearance-none py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:outline-none" 
+              >
+              
+              {options.map((option)=>{
+                return <option value={option}>{option}</option>
+              })}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-end pr-2 text-gray-700">
+        <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.9 7l4.1 4.1 4.1-4.1 1.4 1.4-5.5 5.5-5.5-5.5z"/></svg>
+    </div>
+    
+            </div></div>)
+            }else if(input.type === 'radio'){
+              const {name, label, options} = input as Input;
+              return  <fieldset class="mb-4">
+              <legend class="block text-sm font-medium">{label} {input.required && (<span class="text-red-500">*</span>)}</legend>
+                <div>{options?.map( option=>(<input class="mr-1" type="radio" value={option} id={option} name={name}/><label class="mr-4" for={option}>{option}</label>))}</div></fieldset>
+            }else{
+              const inputProps = { label: '', autocomplete: 'on', placeholder: '' , ...input} as Input;
+            const { name, label} = inputProps;
+            return name && (
             <div class="mb-6">
               {label && (
                 <label for={name} class="block text-sm font-medium">
-                  {label}
+                  {label} {input.required && (<span class="text-red-500">*</span>)}
                 </label>
               )}
               <input
-                type={type}
-                name={name}
                 id={name}
-                autocomplete={autocomplete}
-                placeholder={placeholder}
-                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                {...inputProps}
+                class="py-3 px-4 block w-full text-md rounded-lg border valid:border-gray-200 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>
           )
+            }
+            }
       )
   }
 
@@ -83,3 +118,63 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     )
   }
 </form>
+
+<script>
+  // This script will run in the browser, not during Astro's build process
+  import {getTrackingObject} from '~/utils/webUtils';
+  document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('registerForm') as HTMLFormElement;
+
+      form.addEventListener('submit', (event: Event) => {
+          event.preventDefault(); // Prevent the default form submission
+
+          const formData = new FormData(form);
+
+          // Example: Logging formData or sending it via Fetch API
+          // for (const [key, value] of formData.entries()) {
+          //     console.log(key, value);
+          // }
+          const formDataObj = Object.fromEntries(formData.entries());
+          const trackingObject = getTrackingObject();
+          console.log({...formDataObj, trackingObject});
+          const data = {...formDataObj, trackingObject};
+          // const url = `https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api/apply-form`;
+          const url = `https://webhook-test.com/a879a6c42b4e4e2ab2de7d53370b96e9`;
+          /*dob: "1989-04-21"
+
+            email: "ps21@me.com"
+
+            finSize: "39"
+
+            firstname: "Pracha"
+
+            hasMaskAndSnorkel: "มี Mask และ Snorkel"
+
+            lastname: "Saensuk"
+
+            mobileNumber: "0863928382"
+
+            textarea: ""/*/
+          // Optionally, send formData to a server
+          fetch(url, {
+            method: 'POST', // Specify the method
+            headers: {
+              'Content-Type': 'application/json', // Specify the content type as JSON
+            },
+            body: JSON.stringify(data), // Convert the JavaScript object to a JSON string
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON response body
+          })
+          .then(data => {
+            console.log('Success:', data); // Handle the success case
+          })
+          .catch(error => {
+            console.error('Error:', error); // Handle errors
+          });
+      });
+  });
+</script>

@@ -1,0 +1,84 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+
+const metadata = {
+  title: 'Apply',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <ContactUs
+    title="ลงทะเบียนเรียน"
+    button="ลงทะเบียน"
+    subtitle="กรุณกรอกข้อมูลด้านล่างให้ครบถ้วน เพื่อใช้ในการลงทะเบียนเรียน และ การออกใบ Certificate"
+    inputs={[
+      {
+        type: 'text',
+        required: true,
+        name: 'firstname',
+        label: 'ชื่อ(ภาษาอังกฤษ)',
+      },
+      {
+        type: 'text',
+        required: true,
+
+        name: 'lastname',
+        label: 'นามสกุล(ภาษาอังกฤษ)',
+      },
+      {
+        type: 'text',
+        required: true,
+
+        name: 'nickname',
+        label: 'ชื่อเล่น(ภาษาไทย)',
+      },
+      {
+        type: 'email',
+        required: true,
+
+        name: 'email',
+        label: 'Email',
+      },
+      {
+        type: 'tel',
+        required: true,
+        name: 'mobileNumber',
+        label: 'เบอร์โทรศัพท์',
+      },
+      {
+        type: 'date',
+        required: true,
+        name: 'dob',
+        label: 'วัดเกิด',
+      },
+      {
+        required: true,
+        
+        type: 'select',
+        name: 'finSize',
+        label: 'ขนาดฟิน',
+        options: ['มีฟินมาเอง', ...Array.from({ length: 14 }, (_, i) => (i + 36).toString())]
+      },
+      {
+        type: 'radio',
+        // required: true,
+
+        name: 'hasMaskAndSnorkel',
+        label: 'Mask และ Snorkel',
+        options: ['มี Mask และ Snorkel', 'ขอยืม']
+      },
+    ]}
+  
+  />
+    <!-- {/*textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."*/} -->
