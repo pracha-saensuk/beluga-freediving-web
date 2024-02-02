@@ -3,7 +3,14 @@ import yaml from 'js-yaml';
 import merge from 'lodash.merge';
 
 import type { MetaData } from '~/types';
-import { convertPriceObjToString } from './utils';
+
+export const convertPriceObjToString = (priceObj:{[key:string]:number})=>{
+  const price: Partial<{ key:string }> = {};
+    Object.keys(priceObj).map((key:string) => {
+      price[key] = priceObj[key].toLocaleString();
+  });
+  return price;
+}
 
 export interface SiteConfig {
   name: string;
