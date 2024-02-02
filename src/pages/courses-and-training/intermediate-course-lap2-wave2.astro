@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
+
+const metadata = {
+  title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
+  ignoreTitleTemplate: true,
+};
+const courseDetail = {
+  title: 'Molchanovs Lap2/Wave2',
+  subtitle: 'คอร์สระดับกลาง', 
+  description: 'คอร์สสำหรับผู้เรียน Freedive มาแล้ว และ อยากต่อยอดให้ดำได้ลึกขึ้น กลั้นหายใจได้นานขึ้น และ เตรียมตัวสำหรับการเรียนต่อระดับ Master เรียนจบสามารถดำน้ำได้ลึก 24-30 เมตร และ มีการสอนดำน้ำแบบ No Fins อย่างเข้มข้นอีกด้วย',
+  courseContentText: 'สิ่งที่ได้เรียนในคอร์ส',
+  detailList:[
+    {sectionHeader:'Theory Session (ทั้ง Lap2/Wave2):',listItems: ['เทคนิคการหายใจ Over-breathing/Tidal/Under-Breathing','ทำไมดำน้ำลึกจึงรู้สึกสงบสบายและสิ่งที่ต้องระวัง','อาการบาดเจ็บที่เกิดขึ้นจากความดัน หรือ Barotrauma และวิธีการป้องกัน','การดึงลมจากปอดมาที่ปาก เพื่อแก้ปัญหาลมหมดปากเพื่อการเคลียร์หูเมื่อลงลึก','การถ่วงน้ำหนักแบบถูกต้องที่ทำให้การดำน้ำที่ง่ายขึ้นและปลอดภัยขึ้น','เทคนิคการทำสมาธิ (Mental Technique) สำหรับ Freedive','การเคลียร์หูโดยไม่ใช้มือ (Handfree) แบบเบื้องต้น']},
+    {sectionHeader:'Pool Session (ทั้ง Lap2/Wave2):',listItems: ['การออกตัวจากขอบสระสำหรับ DYNB และ DNF','การกลับตัวเมื่อถึงขอบสระสำหรับ DYNB และ DNF','การดำแบบ DNF 35m','การดำแบบ DYNB 50m','การปรับแรงดันหู แบบ Frenzel และ การ Reverse Pack','การช่วยเหลือผู้ Black out และ Samba']},
+    {sectionHeader:'Open Water Session (Wave2 เท่านั้น):',listItems: ['การดำแบบมี fins CWT 24m','การดำแบบไม่มี fins CNF 15m','การช่วยคน Black out จากความลึก']}
+  ],
+  imageSrc: '~/assets/images/W1.svg',
+  }
+---
+
+<Layout metadata={metadata}>
+  <CourseDetailSection {...courseDetail} />
+</Layout>

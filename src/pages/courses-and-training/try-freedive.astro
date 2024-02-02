@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
+import type { CourseDetail } from '~/types';
+
+const metadata = {
+  title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
+  ignoreTitleTemplate: true,
+};
+const courseDetail:CourseDetail = {
+  title: 'Try Freedive',
+  subtitle: 'คอร์สทดลองเรียน', 
+  description: 'สำหรับผู้ที่อยากรู้ว่าตัวเองเหมาะกับ Freedive ไหม คอร์สให้ลองเรียน Freedive 3 ชั่วโมง เพื่อได้ลองดำ Freedive ได้ลองใช้อุปกรณ์ ได้รูปใต้น้ำสวยๆ',
+  courseContentText: 'สิ่งที่ได้เรียนในคอร์ส',
+  detailList:[
+    {listItems: ['เทคนิคการกลั้นหายใจที่ถูกต้องปลอดภัย และ กลั้นได้นาน','รู้จักอุปกรณ์ Freedive','การปรับแรงดันหู ป้องกันการบาดเจ็บของหู','การตี fins ใต้น้ำให้สวยและมีประสิทธิภาพ','รูปถ่ายใต้น้ำ 2 รูป']},
+  ],
+  imageSrc: '~/assets/images/Try-Freedive.svg',
+  }
+---
+
+<Layout metadata={metadata}>
+  <CourseDetailSection {...courseDetail} />
+</Layout>
