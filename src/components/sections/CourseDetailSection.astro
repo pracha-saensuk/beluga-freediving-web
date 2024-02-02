@@ -1,0 +1,88 @@
+---
+import Content from '~/components/widgets/Content.astro';
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import type { CourseDetail } from '~/types';
+import { SITE, } from '~/utils/config';
+
+const registerLink = SITE.contact.line;
+
+const {
+  id = 'course-detail',
+  courseContentText = 'สิ่งที่ได้เรียนในคอร์ส',
+  detailList,
+  title,
+  subtitle,
+  description,
+  imageSrc,
+} =  Astro.props as CourseDetail;
+---
+<Content
+  id={id}
+  title="รายละเอียดคอร์สฟรีไดฟ์"
+  tagline="Freedive Course Detail"
+  items={[
+    {
+      title: 'หลักสูตรมาตรฐานโลก',
+      description:'ถูกออกแบบโดยนักแข่ง Freedive ระดับโลก เช่น Alexey Molchanovs, Adam Stern, Florian Dagoury และ อื่นๆอีกหลายคน',
+      icon: 'tabler:globe'
+    },
+    {
+      title: 'คอร์สเรียนกลุ่มเล็ก',
+      description:'สามารถสอนได้ทั่วถึง',
+      icon: 'tabler:users-group'
+    },
+    {
+      title: 'สถานที่เรียน',
+      description:'มีสระน้ำสำหรับเรียน Freediving กทม ได้ 4 แห่ง ดูแผนที่ ทะเลแสมสาร, เกาะเต่า และ ภูเก็ต',
+      icon: 'tabler:brand-google-maps',
+    },
+    {
+      title: 'สิ่่งที่รวมในคอร์ส',
+      description:'รวมค่าสระ ค่าเช่าอุปกรณ์ และ ค่า Certificate แล้ว แต่ไม่รวมค่าออกเรือ',
+      icon: 'tabler:circle-plus'
+    },
+  ]}
+>
+<Fragment slot='image'>
+  <div class="relative m-auto h-40 w-40 md:h-60 md:w-60 max-w-4xl"> 
+      <Image
+        class="mx-auto w-full rounded-2xl md:mt-10"
+        width={500}
+        height={540}
+        widths={[400, 768]}
+        sizes="(max-width: 768px) 100vw, 432px"
+        layout="responsive"
+        src={imageSrc}
+        alt='Pracha Saensuk profile'
+      />
+  </div>
+  </Fragment>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{title}</h3>
+    <h4 class="text-primary text-xl">{subtitle}</h4>
+    <p>
+      {description}
+    </p>
+    <di class="w-full flex">
+    <Button class="mt-2 mb-2 mx-auto w-full md:max-w-64 md:mx-0.5" variant="primary" text="ลงทะเบียนเรียน" href={registerLink} target="_blank"/>
+    </di>
+    <h3 class="mt-2 mb-0 text-primary text-2xl">{courseContentText}</h3>
+    {detailList.map(detail=>{
+      return (
+      <Fragment>{detail.sectionHeader && <h3 class="mt-2 mb-0 text-primary text-xl">{detail.sectionHeader}</h3>}
+          {(detail.listItems && detail.listItems.length > 0) && <ul class="list-disc list-inside">
+            {detail.listItems.map(item=>(<li>{item}</li>))}
+          </ul>}
+        </Fragment>
+        
+      )
+    })}
+
+    <h3 class="mt-6 mb-0 text-secondary text-2xl">คอร์สของเรา:</h3>
+  </Fragment>
+
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>

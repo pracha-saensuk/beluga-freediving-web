@@ -1,0 +1,103 @@
+---
+import Features2 from '~/components/widgets/Features2.astro'
+import { SITE, } from '~/utils/config';
+
+const registerLink = SITE.contact.line;
+// const telURI = SITE.contact.telURI;
+const { price } = SITE;
+---
+<Features2
+    title="คอร์สเรียนฟรีไดฟ์"
+    subtitle="คอร์สเรียนกลุ่มเล็ก จัดที่กรุงเทพ, แสมสาร และ เกาะเต่า"
+    tagline="Freediving Course"
+    items={[
+      {
+        title: 'ทดลองเรียนฟรีไดฟ์',
+        subtitle: `ราคา ${price.tryFreedive}`,
+        description:
+          "สำหรับผู้ที่อยากรู้ว่าตัวเองเหมาะกับ Freedive ไหม คอร์สให้ลองเรียน Freedive 3 ชั่วโมง เพื่อได้ลองดำ Freedive ได้ลองใช้อุปกรณ์",
+        icon: 'Try-Freedive',
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: registerLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_self',
+          text: 'รายละเอียด',
+          href: '/courses-and-training/try-freedive',
+          icon: 'tabler:list-details',
+        }
+      },
+      {
+        title: 'Private Pool Training',
+        subtitle: `ราคา ${price.privateTraining} บาท`,
+        description:
+          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
+        icon: 'B3',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: registerLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_self',
+          text: 'รายละเอียด',
+          href: '/courses-and-training/private-pool-training',
+          icon: 'tabler:list-details',
+        }
+      },
+      {
+        title: `คอร์สผู้เริ่มต้น`,
+        subtitle: `Lap 1 - ราคา ${price.lap1} บาท`,
+        subtitle2: `Wave 1 - ราคา ${price.wave1} บาท`,
+        description: "คอร์สสำหรับผู้เริ่มต้น สำหรับคนที่ไม่เคยเรียน Freedive มาก่อน เรียนเพื่อที่จะสามารถดำน้ำได้ลึก 12-20 เมตร สามารถดำน้ำชมปะการัง และ ถ่ายรูปใต้น้ำได้",
+        icon: 'W1',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: registerLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_self',
+          text: 'รายละเอียด',
+          href: '/courses-and-training/beginner-course-lap1-wave1',
+          icon: 'tabler:list-details',
+        }
+      },
+      {
+        title: 'คอร์สระดับกลาง',
+        subtitle: `Lap 2 - ${price.lap2} บาท`,
+        subtitle2: `Wave 2 - ${price.wave2} บาท`,
+        description:
+          'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิคระยะเวลา 3 ชม',
+        icon: 'W2',
+
+        callToAction:{
+          target:'_blank',
+          text: 'ลงเรียน',
+          href: registerLink,
+          icon: 'tabler:checklist',
+          class:'btn-primary'
+        },
+        callToAction2:{
+          target:'_self',
+          text: 'รายละเอียด',
+          href: '/courses-and-training/intermediate-course-lap2-wave2',
+          icon: 'tabler:list-details',
+        }
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
