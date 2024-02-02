@@ -14,19 +14,19 @@ export const headerData = {
         },
         {
           text: 'คอร์ส Lap1/Wave1',
-          href: getPermalink('/beginner-course-lap1-wave1'),
+          href: getPermalink('/courses-and-training/beginner-course-lap1-wave1'),
         },
         {
           text: 'คอร์ส Lap2/Wave2',
-          href: getPermalink('/intermediate-course-lap2-wave2'),
+          href: getPermalink('/courses-and-training/intermediate-course-lap2-wave2'),
         },
         {
           text: 'ทดลองเรียนฟรีไดฟ์',
-          href: getPermalink('/try-freediver'),
+          href: getPermalink('/courses-and-training/try-freediver'),
         },
         {
           text: 'Private Pool Training',
-          href: getPermalink('/private-pool-training'),
+          href: getPermalink('/courses-and-training/private-pool-training'),
         },
       ],
     },
