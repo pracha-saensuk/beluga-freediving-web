@@ -1,4 +1,5 @@
-import { I18N } from '~/utils/config';
+// import { I18N } from '~/utils/config';
+import { I18N } from './config';
 
 const formatter: Intl.DateTimeFormat =
   I18N?.dateFormatter ||
