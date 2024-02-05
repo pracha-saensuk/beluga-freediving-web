@@ -1,9 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
+import type { MetaData } from '~/types';
 
-const metadata = {
-  title: 'Apply',
+const metadata: MetaData = {
+  title: 'ลงทะเบียนเรียน',
+  robots: {
+    follow: false,
+    index: false,
+  }
 };
 ---
 

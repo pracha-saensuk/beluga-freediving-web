@@ -1,11 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
-import type { CourseDetail } from '~/types';
+import type { CourseDetail, MetaData } from '~/types';
 
-const metadata = {
-  title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
-  ignoreTitleTemplate: true,
+const metadata: MetaData = {
+  title: 'คอร์สลองเรียน Freedive',
+  description: 'สำหรับผู้ที่อยากรู้ว่าตัวเองเหมาะกับ Freedive ไหม คอร์สให้ลองเรียน Freedive 3 ชั่วโมง เพื่อได้ลองดำ Freedive ได้ลองใช้อุปกรณ์ ได้รูปใต้น้ำสวยๆ',
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 const courseDetail:CourseDetail = {
   title: 'Try Freedive',

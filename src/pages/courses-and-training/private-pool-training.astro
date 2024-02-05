@@ -1,14 +1,18 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
-import type { CourseDetail } from '~/types';
+import type { CourseDetail, MetaData } from '~/types';
 
-const metadata = {
-  title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
-  ignoreTitleTemplate: true,
+const metadata: MetaData = {
+  title: 'Private Pool Training',
+  description: 'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิค',
+  robots:{
+    index: true,
+    follow: true,
+  },
 };
 const courseDetail:CourseDetail = {
-  title: 'Pool Base Training',
+  title: 'Private Pool Training',
   subtitle: 'ซ้อมสระแบบ Private', 
   description: 'สำหรับผู้ที่ต้องการซ้อม Reskill หลังไม่ได้ Freedive มานาน หรือ ผู้ที่ต้องการพัฒนาความสามารถให้ดำได้ไกลขึ้นลึกขึ้น และ ปรับเทคนิค',
   courseContentText: 'สิ่งที่ช่วยเทรนได้',

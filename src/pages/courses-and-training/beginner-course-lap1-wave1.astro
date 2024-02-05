@@ -1,10 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
+import type { MetaData } from '~/types';
 
-const metadata = {
-  title: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร',
-  ignoreTitleTemplate: true,
+const metadata: MetaData = {
+  title: 'คอร์สสำหรับผู้เริ่มต้น',
+  description: 'Molchanovs Lap1/Wave1 คอร์สสำหรับผู้เริ่มต้น สำหรับคนที่ไม่เคยเรียน Freedive มาก่อน เรียนเพื่อที่จะสามารถดำน้ำได้ลึก 12-20 เมตร สามารถดำน้ำชมปะการัง และ ถ่ายรูปใต้น้ำได้',
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 const courseDetail = {
   title: 'Molchanovs Lap1/Wave1',

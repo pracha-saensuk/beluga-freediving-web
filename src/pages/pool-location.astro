@@ -1,9 +1,15 @@
 ---
 import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
-const metadata = {
-  title: 'Beluga Freediving - สระเรียนในกรุงเทพ',
-  ignoreTitleTemplate: true,
+import type { MetaData } from '~/types';
+
+const metadata: MetaData = {
+  title: 'สระเรียนที่ใช้สอนในกรุงเทพ',
+  description: 'สระทั้งหมดสำหรับใช้สอนของทางเรา',
+  robots:{
+    index: true,
+    follow: true,
+  }
 };
 ---
 
