@@ -1,0 +1,31 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import Button from "~/components/ui/Button.astro"
+import { SITE } from "~/utils/config"
+import type { MetaData } from "~/types";
+const metadata: MetaData = {
+  title: `ขอบคุณสำหรับข้อมูล`,
+  robots:{
+    follow: false,
+    index: false
+  }
+}
+const line = SITE.contact.line;
+---
+<Layout metadata={metadata}>
+<div class=" mt-5 mb-10 p-4">
+  <h1 class="text-center text-2xl text-primary">ขอบคุณสำหรับข้อมูล</h1>
+  <h2 class="text-center text-lg">ระบบกำลังจะส่งคุณกลับไป Line หรือ <Button icon="tabler:arrow-up-right" variant="link" id="lineLink" href={line}>กดที่นี้</Button></h2>
+</div>
+</Layout>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const line = document.getElementById("lineLink")?.getAttribute('href')!;
+  console.log({line});
+  console.log('Line: ', line)
+  setTimeout(()=>{
+    window.location.href = line;
+  },5000)
+});
+</script>
