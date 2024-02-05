@@ -38,6 +38,10 @@ export interface SiteConfig {
     tel: string;
     telURI: string;
   };
+  applyForm: {
+    actionUrl: string;
+    redirectUrl: string;
+  }
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
 }
