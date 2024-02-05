@@ -22,7 +22,7 @@ export const headerData = {
         },
         {
           text: 'ทดลองเรียนฟรีไดฟ์',
-          href: getPermalink('/courses-and-training/try-freediver'),
+          href: getPermalink('/courses-and-training/try-freedive'),
         },
         {
           text: 'Private Pool Training',
@@ -68,7 +68,7 @@ export const footerData = {
         },
         {
           text: 'ทดลองเรียนฟรีไดฟ์',
-          href: getPermalink('/try-freediver'),
+          href: getPermalink('/try-freedive'),
         },
         {
           text: 'Private Pool Training',
@@ -79,9 +79,8 @@ export const footerData = {
     {
       title: 'อื่นๆ',
       links: [
-        { text: 'ครูผ้สอนทั้งหมด', href: '#' },
-        {text: 'รูปภาพ',  href: '#'},
-        {text: 'สระที่ใช้สอน', href: '#'}
+        { text: 'ครูผ้สอนทั้งหมด', href: getPermalink('/meet-your-instrutor') },
+        {text: 'สระที่ใช้สอน', href: getPermalink('/pool-location')}
 
       ],
     },
@@ -91,9 +90,9 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Youtube', icon: 'tabler:brand-youtube', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Youtube', icon: 'tabler:brand-youtube', href: 'https://youtube.com/@bradycardia5951' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/pracha_freediver' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://web.facebook.com/beluga.freediving.th' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
