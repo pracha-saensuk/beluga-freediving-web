@@ -22,7 +22,7 @@ export function parseJSON(jsonString) {
     return JSON.parse(jsonString);
   } catch (error) {
     // Log the error to the console if needed
-    console.log("Failed to parse JSON:", error);
+    // console.log("Failed to parse JSON:", error);
     return {};
   }
 }
@@ -44,7 +44,6 @@ export function storeIfExists(key, value) {
     if(!cookieDomain){
       cookieDomain = generateDomainForCookie();
     }
-    console.log(cookieDomain);
     if (value !== '' && !!value) {
       const cookies = parseJSON(Cookies.get(defaultKey)) as TrackingObject;
       const ls = parseJSON(localStorage.getItem(defaultKey)) as TrackingObject;
@@ -55,7 +54,7 @@ export function storeIfExists(key, value) {
 export const getFromStore = (key:string): string =>{
   const cookies:TrackingObject = parseJSON(Cookies.get(defaultKey)) || {};
   const ls:TrackingObject = parseJSON(localStorage.getItem(defaultKey)) || {}; 
-  console.log(cookies, ls)
+  // console.log(cookies, ls)
   return cookies[key] || ls[key];
 };
 // Function to get all query parameters as an object

@@ -19,15 +19,13 @@ let query = getQueryParamsWithLastValue();
 	const fbMailBoxId = query.mailbox_id;
 
 	let userId = getFromStore('userId');
-	console.log('u1:',userId);
 	if(!userId){
-		console.log('not exists');
+		// console.log('not exists');
 		userId = nanoid();
 		storeIfExists('userId',userId);
 	}else{
-		console.log('exists');
+		// console.log('exists');
 	}
-	console.log('u2:',userId);
 	storeIfExists('fbBusinessId',fbBusinessId);
 	storeIfExists('fbAssetId',fbAssetId);
 	storeIfExists('fbSelectedId',fbSelectedId);
@@ -69,9 +67,9 @@ let query = getQueryParamsWithLastValue();
     // headers: 'application/json',
     body: JSON.stringify(payload)
   };
-  console.log('payload',payload);
-  console.log(fetchOptions);
-  const response = await fetch('https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api', fetchOptions).catch(console.log);
-  console.log('response',response);
+  ///console.log('payload',payload);
+  //console.log(fetchOptions);
+  await fetch('https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api', fetchOptions).catch(console.log);
+  // console.log('response',response);
 
 </script>

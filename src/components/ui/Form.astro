@@ -131,7 +131,6 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '',} 
       const actionUrl = this.dataset.actionUrl!;
       const form = document.getElementById('registerForm') as HTMLFormElement;
       form.addEventListener('submit', (event: Event) => {
-        console.log({redirectUrl, actionUrl})
           event.preventDefault(); // Prevent the default form submission
 
           const formData = new FormData(form);
