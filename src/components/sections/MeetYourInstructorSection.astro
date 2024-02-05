@@ -1,0 +1,73 @@
+---
+import Profile from "~/components/widgets/Profile.astro"
+const {id='meet-your-instructor"'} = Astro.props;
+---
+<Profile
+id={id}
+title="ครูผู้สอน"
+tagline="Meet Your Instructor"
+subtitle="รู้จักครูผู้สอนของโรงเรียน Beluga Freediving"
+items={[
+  {
+    title: 'DYNB National Record Holder',
+    description:'ผู้ถือสถิติประเทศไทยด้านการดำน้ำแบบใส่ฟิน',
+    icon: 'tabler:medal-2',
+  },
+  {
+    title: 'DYNB 200m',
+    description:'ดำน้ำแบบใส่ฟินระยะทาง 200m'
+  },
+  {
+    title: 'DNF 125m',
+    description:'ดำน้ำแบบไม่ใส่ฟินระยะทาง 125m'
+  },
+  {
+    title: 'STA 5:00 นาที',
+    description:'กลั้นหายใจ 5 นาที'
+  },
+]}
+bottomColumns={3}
+bottomItems={[
+  {
+    icon: 'tabler:brand-youtube',
+    callToAction: {
+      target: '_blank',
+      text: 'Youtube',
+      href: 'https://youtube.com/playlist?list=PLPIud62AFmgtksbhOPfE21SGDMOO2NDdF',
+    },
+  },
+  {
+    icon: 'tabler:brand-instagram',
+    callToAction: {
+      target: '_blank',
+      text: 'Instagram',
+      href: 'https://www.instagram.com/pracha_freediver',
+    },
+  },
+  {
+    icon: 'tabler:brand-facebook',
+    callToAction: {
+      target: '_blank',
+      text: 'Facebook',
+      href: 'https://web.facebook.com/beluga.freediving.th',
+    },
+  },
+]}
+image={{
+  src: '~/assets/images/pracha-profile.webp',
+  alt: 'Pracha Saensuk profile',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">ครูตุน</h3>
+  <h4 class="text-primary text-xl">Molchanovs  Freediving Instructor</h4>
+  <p>
+    นักกีฬาฟรีไดฟ์ระดับประเทศ พร้อมประสบการ์สอน Freediver หลายๆคน และ Coach หลายๆคนให้ดำได้ 100m และ กลั้นหายใจมากกว่า 5 นาที
+  </p>
+  <h3 class="mt-2 mb-0 text-primary text-xl">สถิติ และ ประสบการณ์:</h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Profile>

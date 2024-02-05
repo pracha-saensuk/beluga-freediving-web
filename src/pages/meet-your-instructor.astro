@@ -1,0 +1,18 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import MeetYourInstructorSection from '~/components/sections/MeetYourInstructorSection.astro';
+import type { MetaData } from '~/types';
+
+const metadata: MetaData = {
+  title: 'คอร์สเรียนฟรีไดฟ์ทั้งหมด',
+  description: 'คอร์สเรียน Freedive และ Training สำหรับผู้เริ่มต้นที่ยังไม่เคยเรียน Freedive และ ระดับ Intermidiate สอนโดยเจ้าของสถิติประเทศไทย ที่มีสถิติ DYNB 200m และ DNF 125m',
+  robots: {
+    index: true,
+    follow: true,
+  
+  }
+};
+---
+<Layout metadata={metadata}>
+  <MeetYourInstructorSection/>
+</Layout>
