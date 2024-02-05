@@ -22,7 +22,7 @@ export function parseJSON(jsonString) {
     return JSON.parse(jsonString);
   } catch (error) {
     // Log the error to the console if needed
-    console.error("Failed to parse JSON:", error);
+    console.log("Failed to parse JSON:", error);
     return {};
   }
 }
