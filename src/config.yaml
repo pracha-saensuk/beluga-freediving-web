@@ -17,7 +17,7 @@ site:
   applyForm:
     actionUrl: 'https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api/apply-form'  
     redirectUrl: '/thank-you-for-apply'  
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: null
 
 # Default SEO metadata
 metadata:
@@ -76,7 +76,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: "G-XFJN2KDEYJ" # or "G-XXXXXXXXXX"
+      id: G-XFJN2KDEYJ # or "G-XXXXXXXXXX"
 
 ui:
   theme: 'light' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
