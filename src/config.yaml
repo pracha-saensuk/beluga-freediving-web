@@ -14,13 +14,16 @@ site:
   contact:
     line: 'https://lin.ee/NQllfJ0'
     tel: '0620868996'  
+  applyForm:
+    actionUrl: 'https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api/apply-form'  
+    redirectUrl: '/thank-you-for-apply'  
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
 # Default SEO metadata
 metadata:
   title:
-    default: 'Beluga Freediving - Course เรียนฟรีไดฟ์ - กรุงเทพมหานคร'
-    template: '%s — Beluga Freediving'
+    default: 'คอร์สเรียนฟรีไดฟ์'
+    template: '%s — Beluga Freediving - กทม'
   description: 'รับสอน Freedive(ฟรีไดฟ์) มี Course เรียน Freediving ในกทม และ ออนไลน์ สำหรับผู้เริ่มต้น และ ระดับ Advanced สอนโดยครูเจ้าของสถิติประเทศไทย ผู้มีสถิติ DYNB 200m และ DNF 125m'
   robots:
     index: true
