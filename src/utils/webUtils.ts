@@ -26,11 +26,29 @@ export function parseJSON(jsonString) {
     return {};
   }
 }
+
+let cookieDomain;
+function generateDomainForCookie() {
+  const hostname = window.location.hostname;
+  // Check if the hostname is an IP address
+  if (/^[0-9]+(\.[0-9]+){3}$/.test(hostname)) {
+      // It's an IP address, so don't set the domain attribute
+      return '';
+  } else {
+      // It's a named domain, extract the domain in a format for cookies
+      return `domain=.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)};`;
+  }
+}
 export function storeIfExists(key, value) {
+
+    if(!cookieDomain){
+      cookieDomain = generateDomainForCookie();
+    }
+    console.log(cookieDomain);
     if (value !== '' && !!value) {
       const cookies = parseJSON(Cookies.get(defaultKey)) as TrackingObject;
       const ls = parseJSON(localStorage.getItem(defaultKey)) as TrackingObject;
-      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365, domain: '.belugafreediving.com'});
+      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365, domain: cookieDomain});
       localStorage.setItem(defaultKey, JSON.stringify({...ls, [key]: value}));
     }
 }
