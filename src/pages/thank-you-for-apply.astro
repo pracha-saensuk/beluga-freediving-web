@@ -22,8 +22,8 @@ const line = SITE.contact.line;
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const line = document.getElementById("lineLink")?.getAttribute('href')!;
-  console.log({line});
-  console.log('Line: ', line)
+  // console.log({line});
+  // console.log('Line: ', line)
   setTimeout(()=>{
     window.location.href = line;
   },5000)

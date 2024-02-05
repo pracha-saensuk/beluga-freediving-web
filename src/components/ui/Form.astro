@@ -136,7 +136,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '',} 
           const formData = new FormData(form);
           const formDataObj = Object.fromEntries(formData.entries());
           const trackingObject = getTrackingObject();
-          console.log({...formDataObj, trackingObject});
+         // console.log({...formDataObj, trackingObject});
           const data = {...formDataObj, trackingObject};
           fetch(actionUrl, {
             method: 'POST', // Specify the method
