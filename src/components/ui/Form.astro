@@ -1,10 +1,11 @@
 ---
 import type { Form, Input, Select } from '~/types';
 import Button from '~/components/ui/Button.astro';
-
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
+import {SITE} from '~/utils/config';
+const { redirectUrl, actionUrl } = SITE.applyForm;
+const { inputs, textarea, disclaimer, button = 'Contact us', description = '',} = Astro.props as Form;
 ---
-
+<apply-form  data-redirect-url={redirectUrl} data-action-url={actionUrl}>
 <form id="registerForm">
   {
     inputs &&
@@ -118,45 +119,27 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     )
   }
 </form>
-
+</apply-form>
 <script>
   // This script will run in the browser, not during Astro's build process
   import {getTrackingObject} from '~/utils/webUtils';
-  document.addEventListener('DOMContentLoaded', () => {
+  // import {SITE} from '~/utils/config';
+  class ApplyForm extends HTMLElement{
+    constructor(){
+      super();
+      const redirectUrl = this.dataset.redirectUrl!;
+      const actionUrl = this.dataset.actionUrl!;
       const form = document.getElementById('registerForm') as HTMLFormElement;
-
       form.addEventListener('submit', (event: Event) => {
+        console.log({redirectUrl, actionUrl})
           event.preventDefault(); // Prevent the default form submission
 
           const formData = new FormData(form);
-
-          // Example: Logging formData or sending it via Fetch API
-          // for (const [key, value] of formData.entries()) {
-          //     console.log(key, value);
-          // }
           const formDataObj = Object.fromEntries(formData.entries());
           const trackingObject = getTrackingObject();
           console.log({...formDataObj, trackingObject});
           const data = {...formDataObj, trackingObject};
-          // const url = `https://asia-southeast1-beluga-freediving-school.cloudfunctions.net/api/apply-form`;
-          const url = `https://webhook-test.com/a879a6c42b4e4e2ab2de7d53370b96e9`;
-          /*dob: "1989-04-21"
-
-            email: "ps21@me.com"
-
-            finSize: "39"
-
-            firstname: "Pracha"
-
-            hasMaskAndSnorkel: "มี Mask และ Snorkel"
-
-            lastname: "Saensuk"
-
-            mobileNumber: "0863928382"
-
-            textarea: ""/*/
-          // Optionally, send formData to a server
-          fetch(url, {
+          fetch(actionUrl, {
             method: 'POST', // Specify the method
             headers: {
               'Content-Type': 'application/json', // Specify the content type as JSON
@@ -164,17 +147,18 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
             body: JSON.stringify(data), // Convert the JavaScript object to a JSON string
           })
           .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json(); // Parse the JSON response body
-          })
-          .then(data => {
-            console.log('Success:', data); // Handle the success case
+            console.log(response);
+            window.location.replace(redirectUrl);
+
           })
           .catch(error => {
             console.error('Error:', error); // Handle errors
           });
       });
-  });
+    }
+  }
+  customElements.define('apply-form',ApplyForm)
+  // document.addEventListener('DOMContentLoaded', () => {
+      
+  // });
 </script>
