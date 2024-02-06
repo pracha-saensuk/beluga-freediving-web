@@ -24,5 +24,5 @@
         .catch(err => console.error(err));
 
     }
-    downloadScript('https://connect.facebook.net/en_US/fbevents.js');
-    downloadScript('https://analytics.tiktok.com/i18n/pixel/events.js')
+    // downloadScript('https://connect.facebook.net/en_US/fbevents.js');
+    // downloadScript('https://analytics.tiktok.com/i18n/pixel/events.js')
