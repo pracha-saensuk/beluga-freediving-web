@@ -56,7 +56,7 @@ export default defineConfig({
 
     ...whenExternalScripts(() =>
       partytown({
-        config: { forward: ['dataLayer.push'] },
+        config: { forward: ['dataLayer.push','fbq','ttq.track','ttq.page','ttq.load'] },
       })
     ),
 

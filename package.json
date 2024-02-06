@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node download-scripts.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
@@ -25,6 +25,7 @@
     "js-cookie": "^3.0.5",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
+    "node-fetch": "^3.3.2",
     "typescript-esbuild": "^0.3.6",
     "unpic": "^3.16.0"
   },
