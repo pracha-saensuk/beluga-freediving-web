@@ -291,6 +291,7 @@ export interface Content extends Headline, Widget {
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;
+  ariaHiddenImg?: boolean;
 }
 
 export interface CourseDetail extends Headline, Widget {

@@ -19,7 +19,7 @@ const {
   image = await Astro.slots.render('image'),
   isReversed = false,
   isAfterContent = false,
-
+  ariaHiddenImg = true,
   id,
   isDark = false,
   classes = {},
@@ -45,7 +45,7 @@ const {
   />
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
-      <div aria-hidden="true" class="md:basis-1/2 ">
+      <div aria-hidden={ariaHiddenImg} class="md:basis-1/2 ">
         {
           image && (
             <div class="relative m-auto max-w-4xl">
