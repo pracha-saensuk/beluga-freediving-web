@@ -34,10 +34,10 @@ export const headerData = {
       text: 'รู้จักครูผู้สอน',
       href: 'meet-your-instructor'
     },
-    {
-      text: 'รูปภาพ',
-      href: getPermalink('/gallery')
-    },
+    // {
+    //   text: 'รูปภาพ',
+    //   href: getPermalink('/gallery')
+    // },
     {
       text: 'สระที่ใช้สอน',
       href: getPermalink('/pool-location')
