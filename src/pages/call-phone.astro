@@ -1,0 +1,57 @@
+---
+import { SITE, } from '~/utils/config';
+import type { MetaData } from '~/types';
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BackToLineButton from '~/components/ui/BackToLineButton.astro';
+
+const telURI = SITE.contact.telURI;
+const tel = SITE.contact.tel;
+const metadata: MetaData = {
+  title: 'ติดต่อเรา',
+  description: 'ติดต่อเราทางโทรศัพท์',
+  robots:{
+    index: false,
+    follow: false,
+  }
+};
+---
+<Layout metadata={metadata}>
+  <BackToLineButton/>
+  <div class={'hidden'} data-tel-uri={telURI}/>
+  <CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'โทรหาเรา',
+      href: telURI,
+      target: '_blank',
+      icon: 'tabler:phone-outgoing',
+    },
+  ]}>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+    <Fragment slot="title">
+      ปรึกษาฟรี
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      โทรหาเราได้ที่ <br class="hidden md:inline" /> {tel}
+    </Fragment>
+</CallToAction>
+<BackToLineButton/>
+
+</Layout>
+
+<script>
+    const element = document.querySelector('[data-tel-uri]') as HTMLElement; // Cast to HTMLElement for type assertion
+    if (element) {
+      const telUri = element.dataset.telUri; // Accessing data attribute via dataset
+      setTimeout(()=>{
+        if(telUri){
+          window.location.href = telUri;
+        }
+      },0)// Use the value as needed
+    }
+</script>
