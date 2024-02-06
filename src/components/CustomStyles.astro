@@ -1,5 +1,5 @@
 ---
-import '@fontsource/prompt';
+// import '@fontsource/prompt';
 
 // 'DM Sans'
 // Nunito
@@ -20,6 +20,16 @@ import '@fontsource/prompt';
 ---
 
 <style is:inline is:global>
+  @font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/prompt-thai-400-normal.woff2') format('woff2'),
+  url('/fonts/prompt-thai-400-normal.woff') format('woff'),
+  url('/fonts/prompt-latin-400-normal.woff2') format('woff2'),
+  url('/fonts/prompt-latin-400-normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
   :root {
     --aw-font-sans: 'Prompt';
     --aw-font-serif: var(--aw-font-sans);

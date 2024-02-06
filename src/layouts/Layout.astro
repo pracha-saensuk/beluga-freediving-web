@@ -25,10 +25,11 @@ export interface Props {
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
 ---
-
 <!doctype html>
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
+    <link rel="preload" as="font" href="/fonts/prompt-thai-400-normal.woff2" type="font/woff2" />
+    <link rel="preload" as="font" href="/fonts/prompt-latin-400-normal.woff2" type="font/woff2" />
     <CommonMeta />
     <Favicons />
     <CustomStyles />

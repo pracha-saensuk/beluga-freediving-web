@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block; /* This property will help us not flash unstyled text for a couple hundred milliseconds, and then it would act like font-display: swap */
+    src: url('/fonts/prompt-thai-400-normal.woff2') format('woff2'),
+    url('/fonts/prompt-thai-400-normal.woff') format('woff'),
+    url('/fonts/prompt-latin-400-normal.woff2') format('woff2'),
+    url('/fonts/prompt-latin-400-normal.woff') format('woff');
+  }
+} 
+
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);
