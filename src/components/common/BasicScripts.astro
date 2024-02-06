@@ -40,6 +40,22 @@ import { UI } from '~/utils/config';
     }
   }
 
+  const showLineButtonIfFromLine = function () {
+    // Get the current URL
+    const currentUrl = window.location.href;
+    
+    // Create a URL object based on the current URL
+    const url = new URL(currentUrl);
+    console.log('search: ', url.searchParams);
+    // Check if 'line-chat' query parameter exists
+    if (url.searchParams.has('line-chat')) {
+      document.querySelectorAll('.line-chat-button').forEach(button => {
+        button.classList.remove('hidden'); // Use Tailwind's `hidden` class for hiding
+        button.classList.add('block');
+      });
+    }
+  };
+
   const onLoad = function () {
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
@@ -126,6 +142,7 @@ import { UI } from '~/utils/config';
       ticking = false;
     }
     appyHeaderStylesOnScroll();
+    showLineButtonIfFromLine();
 
     attachEvent([document], 'scroll', function () {
       lastKnownScrollPosition = window.scrollY;
@@ -157,5 +174,6 @@ import { UI } from '~/utils/config';
     initTheme();
     onLoad();
     onPageShow();
+    showLineButtonIfFromLine();
   });
 </script>

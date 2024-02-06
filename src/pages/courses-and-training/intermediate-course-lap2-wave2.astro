@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import CourseDetailSection from '~/components/sections/CourseDetailSection.astro';
 import type { MetaData } from '~/types';
+import BackToLineButton from '~/components/ui/BackToLineButton.astro';
 
 const metadata: MetaData = {
   title: 'คอร์สระดับกลาง',
@@ -26,5 +27,7 @@ const courseDetail = {
 ---
 
 <Layout metadata={metadata}>
+  <BackToLineButton/>
   <CourseDetailSection {...courseDetail} />
+  <BackToLineButton/>
 </Layout>
