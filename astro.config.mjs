@@ -56,7 +56,23 @@ export default defineConfig({
 
     ...whenExternalScripts(() =>
       partytown({
-        config: { forward: ['dataLayer.push','fbq','ttq.track','ttq.page','ttq.load'] },
+        config: { forward: ['dataLayer.push','fbq','ttq.track','ttq.page','ttq.load'],
+         resolveUrl: function(url) {
+          //console.log("ResolveUrl: ", url)
+          if (url.hostname === "connect.facebook.net") {
+            const proxyUrl = url;
+            proxyUrl.host = 'fb-reverse-proxy.pracha-saensuk.workers.dev';
+            // console.log(proxyUrl.href);
+            return proxyUrl;
+          }
+          if (url.hostname === "analytics.tiktok.com") {
+            const proxyUrl = url;
+            proxyUrl.host = 'tt-reverse-proxy.pracha-saensuk.workers.dev';
+            // console.log(proxyUrl.href);
+            return proxyUrl;
+          }
+          return url;
+        },},
       })
     ),
 
