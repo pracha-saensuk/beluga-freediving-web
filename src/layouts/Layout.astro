@@ -17,6 +17,7 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
 import TrackingScripts from '~/components/common/TrackingScripts.astro';
+import FacebookPixel from '~/components/common/FacebookPixel.astro';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -35,7 +36,7 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-
+    <FacebookPixel/>
     <!-- Uncomment line below to activate View Transitions -->
     <!-- <ViewTransitions fallback="swap" /> -->
   </head>
