@@ -57,11 +57,11 @@ export default defineConfig({
     ...whenExternalScripts(() =>
       partytown({
         config: { forward: [
-          ['dataLayer.push', { preserveBehavior: true }],
-          ['fbq', { preserveBehavior: true }],
-          ['ttq.track', { preserveBehavior: true }],
-          ['ttq.page', { preserveBehavior: true }],
-          ['ttq.load', { preserveBehavior: true }],
+          'dataLayer.push',
+          'fbq',
+          'ttq.track',
+          'ttq.page',
+          'ttq.load'
         ],
          resolveUrl: function(url) {
           //console.log("ResolveUrl: ", url)
