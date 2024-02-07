@@ -56,7 +56,13 @@ export default defineConfig({
 
     ...whenExternalScripts(() =>
       partytown({
-        config: { forward: ['dataLayer.push','fbq','ttq.track','ttq.page','ttq.load'],
+        config: { forward: [
+          ['dataLayer.push', { preserveBehavior: true }],
+          ['fbq', { preserveBehavior: true }],
+          ['ttq.track', { preserveBehavior: true }],
+          ['ttq.page', { preserveBehavior: true }],
+          ['ttq.load', { preserveBehavior: true }],
+        ],
          resolveUrl: function(url) {
           //console.log("ResolveUrl: ", url)
           if (url.hostname === "connect.facebook.net") {
