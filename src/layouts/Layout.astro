@@ -31,6 +31,7 @@ const { language, textDirection } = I18N;
 <!doctype html>
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
+    <GoogleAnalytics/>
     <CommonMeta />
     <Favicons />
     <CustomStyles />
@@ -48,7 +49,6 @@ const { language, textDirection } = I18N;
     <slot />
     <BasicScripts />
     <TrackingScripts/>
-    <GoogleAnalytics/>
     <style is:global>
       img {
         content-visibility: auto;
