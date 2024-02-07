@@ -31,7 +31,7 @@ export default defineConfig({
 
   output: 'static',
   redirects: {
-    '/old-page': '/new-page'
+    '/test-old-page-2xks': '/test-new-page-xdx2hj'
   },
   integrations: [
     tailwind({
