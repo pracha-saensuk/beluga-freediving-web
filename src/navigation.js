@@ -32,7 +32,7 @@ export const headerData = {
     },
     {
       text: 'รู้จักครูผู้สอน',
-      href: 'meet-your-instructor'
+      href: 'meet-your-instructors'
     },
     // {
     //   text: 'รูปภาพ',
@@ -79,7 +79,7 @@ export const footerData = {
     {
       title: 'อื่นๆ',
       links: [
-        { text: 'ครูผ้สอนทั้งหมด', href: getPermalink('/meet-your-instrutor') },
+        { text: 'ครูผ้สอนทั้งหมด', href: getPermalink('/meet-your-instructors') },
         {text: 'สระที่ใช้สอน', href: getPermalink('/pool-location')}
 
       ],
