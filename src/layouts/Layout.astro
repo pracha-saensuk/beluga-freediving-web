@@ -9,7 +9,7 @@ import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
-import Analytics from '~/components/common/Analytics.astro';
+// import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 // Uncomment line below to activate View Transitions
@@ -19,7 +19,7 @@ import type { MetaData as MetaDataType } from '~/types';
 import TrackingScripts from '~/components/common/TrackingScripts.astro';
 import FacebookPixel from '~/components/common/FacebookPixel.astro';
 import TiktokPixel from '~/components/common/TiktokPixel.astro';
-// import GoogleAnalytics from '~/components/common/GoogleAnalytics.astro';
+import GoogleAnalytics from '~/components/common/GoogleAnalytics.astro';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -37,19 +37,18 @@ const { language, textDirection } = I18N;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <Analytics />
+    <!-- <Analytics /> -->
     <FacebookPixel/>
     <TiktokPixel/>
-    <!-- <GoogleAnalytics/> -->
     <!-- Uncomment line below to activate View Transitions -->
     <!-- <ViewTransitions fallback="swap" /> -->
   </head>
-
+  
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
-
     <BasicScripts />
     <TrackingScripts/>
+    <GoogleAnalytics/>
     <style is:global>
       img {
         content-visibility: auto;
