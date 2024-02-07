@@ -30,7 +30,9 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
   output: 'static',
-
+  redirects: {
+    '/old-page': '/new-page'
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,
