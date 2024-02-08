@@ -17,6 +17,8 @@ export type TrackingObject = {
   fbMailBoxId?: string;
 };
 
+window.Cookies = Cookies;
+
 export function parseJSON(jsonString) {
   try {
     return JSON.parse(jsonString);
@@ -39,6 +41,7 @@ function generateDomainForCookie() {
       return `.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)}`;
   }
 }
+
 export function storeIfExists(key, value) {
 
     if(!cookieDomain){
