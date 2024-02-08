@@ -36,7 +36,7 @@ function generateDomainForCookie() {
       return '';
   } else {
       // It's a named domain, extract the domain in a format for cookies
-      return `domain=.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)};`;
+      return `.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)};`;
   }
 }
 export function storeIfExists(key, value) {
