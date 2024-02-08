@@ -1,12 +1,13 @@
 ---
 const partytown = true;
-const attrs = partytown ? { type: "text/partytown", async: true,} : {defer:true};
+const attrs = partytown ? { type: "text/partytown", async: true,} : {};
 ---
 <!-- Google tag (gtag.js) -->
-<script is:inline {...attrs} src="https://www.googletagmanager.com/gtag/js?id=G-XFJN2KDEYJ"></script>
-<script is:inline {...{...attrs,defer: false}}>
+<script is:inline {...attrs} src="https://www.googletagmanager.com/gtag/js?id=G-XFJN2KDEYJ" async={partytown} defer={!partytown}></script>
+<script is:inline {...attrs}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-XFJN2KDEYJ');
+  // console.log({dataLayer});
 </script>
