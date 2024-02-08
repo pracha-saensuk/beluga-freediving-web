@@ -44,11 +44,10 @@ export function storeIfExists(key, value) {
     if(!cookieDomain){
       cookieDomain = generateDomainForCookie();
     }
-    // console.log({cookieDomain});
     if (value !== '' && !!value) {
       const cookies = parseJSON(Cookies.get(defaultKey)) as TrackingObject;
       const ls = parseJSON(localStorage.getItem(defaultKey)) as TrackingObject;
-      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365,});
+      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365,domain: cookieDomain});
       localStorage.setItem(defaultKey, JSON.stringify({...ls, [key]: value}));
     }
 }
