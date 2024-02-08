@@ -79,12 +79,12 @@ export default defineConfig({
             // console.log(proxyUrl.href);
             return proxyUrl;
           }
-          if (url.hostname === "www.googletagmanager.com") {
-            const proxyUrl = url;
-            proxyUrl.host = 'gtm-reverse-proxy.pracha-saensuk.workers.dev';
-            // console.log(proxyUrl.href);
-            return proxyUrl;
-          }
+          // if (url.hostname === "www.googletagmanager.com") {
+          //   const proxyUrl = url;
+          //   proxyUrl.host = 'gtm-reverse-proxy.pracha-saensuk.workers.dev';
+          //   // console.log(proxyUrl.href);
+          //   return proxyUrl;
+          // }
           return url;
         },},
       })
