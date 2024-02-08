@@ -17,6 +17,8 @@ export type TrackingObject = {
   fbMailBoxId?: string;
 };
 
+// window.Cookies = Cookies;
+
 export function parseJSON(jsonString) {
   try {
     return JSON.parse(jsonString);
@@ -28,27 +30,38 @@ export function parseJSON(jsonString) {
 }
 
 let cookieDomain;
+
 function generateDomainForCookie() {
   const hostname = window.location.hostname;
+
   // Check if the hostname is an IP address
   if (/^[0-9]+(\.[0-9]+){3}$/.test(hostname)) {
-      // It's an IP address, so don't set the domain attribute
-      return '';
+    // It's an IP address, so don't set the domain attribute
+    return '';
   } else {
-      // It's a named domain, extract the domain in a format for cookies
-      return `.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)}`;
+    // It's a named domain, extract the domain in a format for cookies,
+    // removing one level of subdomain if present.
+    const parts = hostname.split('.');
+    if (parts.length > 2) {
+      // Remove the first part (one level of subdomain)
+      parts.shift();
+      return `.${parts.join('.')}`.replace(/\/$/, "");
+    } else {
+      // Hostname doesn't have subdomains or just a second-level domain (SLD)
+      return `.${hostname}`.replace(/\/$/, "");
+    }
   }
 }
+
 export function storeIfExists(key, value) {
 
     if(!cookieDomain){
       cookieDomain = generateDomainForCookie();
     }
-    // console.log({cookieDomain});
     if (value !== '' && !!value) {
       const cookies = parseJSON(Cookies.get(defaultKey)) as TrackingObject;
       const ls = parseJSON(localStorage.getItem(defaultKey)) as TrackingObject;
-      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365,});
+      Cookies.set(defaultKey, JSON.stringify({...cookies, [key]: value}), {expires:365,domain: cookieDomain});
       localStorage.setItem(defaultKey, JSON.stringify({...ls, [key]: value}));
     }
 }
