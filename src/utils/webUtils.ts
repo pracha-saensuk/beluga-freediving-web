@@ -17,7 +17,7 @@ export type TrackingObject = {
   fbMailBoxId?: string;
 };
 
-window.Cookies = Cookies;
+// window.Cookies = Cookies;
 
 export function parseJSON(jsonString) {
   try {
@@ -30,15 +30,26 @@ export function parseJSON(jsonString) {
 }
 
 let cookieDomain;
+
 function generateDomainForCookie() {
   const hostname = window.location.hostname;
+
   // Check if the hostname is an IP address
   if (/^[0-9]+(\.[0-9]+){3}$/.test(hostname)) {
-      // It's an IP address, so don't set the domain attribute
-      return '';
+    // It's an IP address, so don't set the domain attribute
+    return '';
   } else {
-      // It's a named domain, extract the domain in a format for cookies
-      return `.${hostname.substring(hostname.lastIndexOf(".", hostname.lastIndexOf(".") - 1) + 1)}`;
+    // It's a named domain, extract the domain in a format for cookies,
+    // removing one level of subdomain if present.
+    const parts = hostname.split('.');
+    if (parts.length > 2) {
+      // Remove the first part (one level of subdomain)
+      parts.shift();
+      return `.${parts.join('.')}`.replace(/\/$/, "");
+    } else {
+      // Hostname doesn't have subdomains or just a second-level domain (SLD)
+      return `.${hostname}`.replace(/\/$/, "");
+    }
   }
 }
 
