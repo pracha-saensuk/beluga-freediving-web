@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Button from '~/components/ui/Button.astro'
 ---
 
 <Layout>
@@ -9,9 +10,16 @@ import Layout from '~/layouts/PageLayout.astro';
     liff.init({
       liffId: '2002539170-xdV7V55g', // Use own liffId
       withLoginOnExternalBrowser: true, // Enable automatic login process
-  }).then(() => {
+  }).then(async () => {
+    const profile = await liff.getProfile();
+    console.log(profile);
+    // liff.login();
       // Start to use liff's api
+  }).catch( (e) => {
+    console.log(e);
+    // liff.login();
   });
   </script>
 </Fragment>
+<Button href="https://liff.line.me/2002539170-xdV7V55g/add-line/?test=edksiwjjsi">สมัคร</Button>
 </Layout>
