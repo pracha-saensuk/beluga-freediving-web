@@ -1,0 +1,17 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+---
+
+<Layout>
+<Fragment slot='header'>
+  <script>
+  import liff from '@line/liff';
+    liff.init({
+      liffId: '2002539170-xdV7V55g', // Use own liffId
+      withLoginOnExternalBrowser: true, // Enable automatic login process
+  }).then(() => {
+      // Start to use liff's api
+  });
+  </script>
+</Fragment>
+</Layout>
