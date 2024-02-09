@@ -1,0 +1,23 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+
+---
+<Layout>
+<h1>โปรดหรอสักครู่</h1>
+</Layout>
+
+<script>
+  import liff from '@line/liff';
+  liff.init({
+      liffId: '2002539170-xdV7V55g', // Use own liffId
+      withLoginOnExternalBrowser: true, // Enable automatic login process
+  }).then(async () => {
+    const profile = await liff.getProfile();
+    console.log(profile);
+    // liff.login();
+      // Start to use liff's api
+  }).catch( (e) => {
+    console.log(e);
+    // liff.login();
+  });
+</script>
