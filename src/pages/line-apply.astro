@@ -1,9 +1,18 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Button from '~/components/ui/Button.astro'
+import type { MetaData } from "~/types";
+
+const metadata: MetaData = {
+  title: 'ลงทะเบียนเรียน',
+  robots: {
+    follow: false,
+    index: false,
+  }
+};
 ---
 
-<Layout>
+<Layout metadata={metadata}>
 <Fragment slot='header'>
   <script>
   import liff from '@line/liff';
