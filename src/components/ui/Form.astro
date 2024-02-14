@@ -123,15 +123,6 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '',} 
 <script>
   // This script will run in the browser, not during Astro's build process
   import {getTrackingObject} from '~/utils/webUtils';
-  // import {SITE} from '~/utils/config';
-  import liff from '@line/liff';
-  window.liff = liff;
-  liff.init({
-    liffId: '2002539170-xdV7V55g', // Use own liffId
-    // withLoginOnExternalBrowser: true, // Enable automatic login process
-}).then(() => {
-    // Start to use liff's api
-});
   class ApplyForm extends HTMLElement{
     constructor(){
       super();
