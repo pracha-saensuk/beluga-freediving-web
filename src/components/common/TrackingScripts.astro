@@ -1,6 +1,6 @@
 <script>
 import { nanoid } from 'nanoid';
-import { getFromStore, getQueryParamsWithLastValue, storeIfExists } from '~/utils/webUtils';
+import { getFromStore, getQueryParamsWithLastValue, getTrackingObject, storeIfExists } from '~/utils/webUtils';
 
 let query = getQueryParamsWithLastValue();
 	const trafficSource = query.utm_source || query.ts || query.network;
@@ -43,6 +43,8 @@ let query = getQueryParamsWithLastValue();
 	storeIfExists('term',term); // widget
 	// Click "Preview" to run your code
 	const userAgent = navigator.userAgent;
+  const trackingObject = getTrackingObject();
+  console.log(trackingObject);
 	const payload = {
 		url: window.location.href,
 		userAgent,
@@ -62,7 +64,9 @@ let query = getQueryParamsWithLastValue();
 		fbBusinessId,
 		fbSelectedId,
 		fbMailBoxId,
+    ...trackingObject
 	}
+
 	const fetchOptions = {
     method: 'post',
     // headers: 'application/json',
