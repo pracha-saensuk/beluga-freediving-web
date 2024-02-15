@@ -17,6 +17,11 @@ let query = getQueryParamsWithLastValue();
 	const fbAssetId = query.asset_id;
 	const fbSelectedId = query.selected_item_id;
 	const fbMailBoxId = query.mailbox_id;
+  const url = new URL(window.location.href);
+
+  if(url.searchParams.has('line-chat')){
+    sessionStorage.setItem('line-chat','1')
+  }
 
 	let userId = getFromStore('userId');
 	if(!userId){
