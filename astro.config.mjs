@@ -116,9 +116,9 @@ export default defineConfig({
   },
 
   vite: {
-    // build: {
-    //   assetsInlineLimit: 100024,
-    // },
+    build: {
+      assetsInlineLimit: 100024,
+    },
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
