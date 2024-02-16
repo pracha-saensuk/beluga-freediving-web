@@ -48,7 +48,8 @@ import { UI } from '~/utils/config';
     const url = new URL(currentUrl);
     console.log('search: ', url.searchParams);
     // Check if 'line-chat' query parameter exists
-    if (url.searchParams.has('line-chat')) {
+
+    if (url.searchParams.has('line-chat') || !!sessionStorage.getItem('line-chat')) {
       document.querySelectorAll('.line-chat-button').forEach(button => {
         button.classList.remove('hidden'); // Use Tailwind's `hidden` class for hiding
         button.classList.add('block');
