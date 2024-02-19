@@ -61,9 +61,9 @@ export default defineConfig({
         config: { forward: [
           'dataLayer.push',
           'fbq',
-          'ttq.track',
-          'ttq.page',
-          'ttq.load'
+          // 'ttq.track',
+          // 'ttq.page',
+          // 'ttq.load'
         ],
          resolveUrl: function(url) {
           //console.log("ResolveUrl: ", url)
@@ -73,12 +73,12 @@ export default defineConfig({
             // console.log(proxyUrl.href);
             return proxyUrl;
           }
-          if (url.hostname === "analytics.tiktok.com") {
-            const proxyUrl = url;
-            proxyUrl.host = 'tt-reverse-proxy.pracha-saensuk.workers.dev';
-            // console.log(proxyUrl.href);
-            return proxyUrl;
-          }
+          // if (url.hostname === "analytics.tiktok.com") {
+          //   const proxyUrl = url;
+          //   proxyUrl.host = 'tt-reverse-proxy.pracha-saensuk.workers.dev';
+          //   // console.log(proxyUrl.href);
+          //   return proxyUrl;
+          // }
           // if (url.hostname === "www.googletagmanager.com") {
           //   const proxyUrl = url;
           //   proxyUrl.host = 'gtm-reverse-proxy.pracha-saensuk.workers.dev';
