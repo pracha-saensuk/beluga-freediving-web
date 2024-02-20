@@ -3,7 +3,7 @@ const partytown = false;
 const attrs = partytown ? { type: "text/partytown", async: true,} : {};
 ---
 <!-- Google tag (gtag.js) -->
-<script async is:inline {...attrs} src="https://www.googletagmanager.com/gtag/js?id=G-XFJN2KDEYJ"></script>
+<script defer is:inline {...attrs} src="https://www.googletagmanager.com/gtag/js?id=G-XFJN2KDEYJ"></script>
 <script is:inline {...attrs}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
