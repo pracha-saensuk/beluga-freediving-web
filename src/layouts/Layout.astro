@@ -19,7 +19,7 @@ import type { MetaData as MetaDataType } from '~/types';
 import TrackingScripts from '~/components/common/TrackingScripts.astro';
 // import FacebookPixel from '~/components/common/FacebookPixel.astro';
 // import TiktokPixel from '~/components/common/TiktokPixel.astro';
-import GoogleAnalytics from '~/components/common/GoogleAnalytics.astro';
+// import GoogleAnalytics from '~/components/common/GoogleAnalytics.astro';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -38,7 +38,7 @@ const { language, textDirection } = I18N;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <GoogleAnalytics/>
+    <!-- <GoogleAnalytics/> -->
     <!-- <Analytics /> -->
     <!-- <FacebookPixel/> -->
     <!-- <TiktokPixel/> -->
