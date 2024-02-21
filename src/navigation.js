@@ -32,7 +32,7 @@ export const headerData = {
     },
     {
       text: 'รู้จักครูผู้สอน',
-      href: 'meet-your-instructors'
+      href: getPermalink('/meet-your-instructors'),
     },
     // {
     //   text: 'รูปภาพ',
